@@ -1,4 +1,5 @@
-﻿using RubyHouseWeb.Areas.Admin.Models;
+﻿using RubyHouseServices.IServices;
+using RubyHouseWeb.Areas.Admin.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,11 @@ namespace RubyHouseWeb.Areas.Admin.Controllers
 {
     public class HomeController : Controller
     {
-        public HomeController()
-        {
+        private readonly IAccountServices _accountServices;
 
+        public HomeController(IAccountServices accountServices)
+        {
+            _accountServices = accountServices;
         }
         [HttpGet]
         public ActionResult Login()
