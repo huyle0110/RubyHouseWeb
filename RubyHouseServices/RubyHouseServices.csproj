@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\EnumCommon.cs" />
+    <Compile Include="DAO\UserDAO.cs" />
     <Compile Include="EF\Category.cs" />
     <Compile Include="EF\Contact.cs" />
     <Compile Include="EF\Feedback.cs" />
@@ -58,15 +59,17 @@
     <Compile Include="EF\Product.cs" />
     <Compile Include="EF\RubyHouseDbContext.cs" />
     <Compile Include="EF\User.cs" />
+    <Compile Include="IServices\IAccountServices.cs" />
+    <Compile Include="IServices\IProductServices.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AccountServices.cs" />
+    <Compile Include="Services\ProductServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DAO\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

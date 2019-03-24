@@ -1,4 +1,5 @@
-﻿using RubyHouseServices.IServices;
+﻿using RubyHouseServices.EF;
+using RubyHouseServices.IServices;
 using RubyHouseWeb.Areas.Admin.Models;
 using System;
 using System.Collections.Generic;
@@ -10,12 +11,17 @@ namespace RubyHouseWeb.Areas.Admin.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IAccountServices _accountServices;
-
-        public HomeController(IAccountServices accountServices)
+        //private readonly IAccountServices _accountServices;
+        //public HomeController(IAccountServices accountServices)
+        //{
+        //    _accountServices = accountServices;
+        //}
+        // GET: Admin/Home
+        public ActionResult Index()
         {
-            _accountServices = accountServices;
+            return View();
         }
+
         [HttpGet]
         public ActionResult Login()
         {
@@ -26,13 +32,14 @@ namespace RubyHouseWeb.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model)
         {
+            //var reuslt = _accountServices.Login(new User() {
+            //    Password = model.Password,
+            //    UserName = model.UserName
+            //});
+
             return RedirectToAction("Index");
         }
 
-        // GET: Admin/Home
-        public ActionResult Index()
-        {
-            return View();
-        }
+        
     }
 }
