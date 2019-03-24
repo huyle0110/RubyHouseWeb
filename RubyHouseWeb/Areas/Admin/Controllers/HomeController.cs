@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.ModelBinding;
 using System.Web.Mvc;
 
 namespace RubyHouseWeb.Areas.Admin.Controllers
@@ -32,12 +33,17 @@ namespace RubyHouseWeb.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model)
         {
+            if (ModelState.IsValid)
+            {
+                // Login
+                
+                return RedirectToAction("Index");
+            }
             //var reuslt = _accountServices.Login(new User() {
             //    Password = model.Password,
             //    UserName = model.UserName
             //});
-
-            return RedirectToAction("Index");
+            return View();
         }
 
         

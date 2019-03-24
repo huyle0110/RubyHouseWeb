@@ -4,35 +4,38 @@
 @model RubyHouseWeb.Areas.Admin.Models.LoginModel
 <div class="login-container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="">
             <div class="text-center m-b-md">
                 <h3>Ruby Shop</h3>
-                @if (!string.IsNullOrEmpty(ViewBag.Message))
-                {
-                    <p class="text-danger">@ViewBag.Message</p>
-                }
             </div>
             <div class="hpanel">
                 <div class="panel-body">
-                    <form id="loginForm" action="login" method="post">
+                    @using (Ajax.BeginForm("Login", "Home", new AjaxOptions { HttpMethod = "POST" }, new { @id = "loginForm", @class = "form-horizontal" }))
+                    {
                         @Html.AntiForgeryToken()
                         <div class="form-group">
-                            <label class="control-label" for="username">Tên đăng nhập</label>
-                            @Html.TextBoxFor(m => m.UserName, new {@class="form-control", @title= "Vui lòng nhập tên đăng nhập của bạn" })
+                            <label class="control-label" for="UserName">Tên đăng nhập</label>
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @title = "Vui lòng nhập tên đăng nhập của bạn" })
+                            @Html.ValidationMessageFor(m => m.UserName)
                         </div>
                         <div class="form-group">
-                            <label class="control-label" for="password">Mật khẩu</label>
-                            <input type="password" title="Vui lòng nhập mật khẩu của bạn" placeholder="******" required="" value="" name="Password" id="password" class="form-control">
+                            <label class="control-label" for="Password">Mật khẩu</label>
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @title = "Vui lòng nhập mật khẩu của bạn" })
+                            @Html.ValidationMessageFor(m => m.Password)
+                        </div>
+                        <div class="form-group">
+                            <label>@Html.CheckBoxFor(m => m.RememberMe) &nbsp; Lưu tên đăng nhập</label>
+                            
                         </div>
                         <button class="btn btn-success btn-block">Đăng nhập</button>
-                    </form>
+                    }
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12 text-center">
-            <strong>TheCao</strong> - 2017 Bản quyền của Logich
+            <strong>RubyHouse</strong> - @DateTime.Now.Year Bản quyền của RubyHouse
         </div>
     </div>
 </div>

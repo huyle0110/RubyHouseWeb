@@ -8,6 +8,18 @@ namespace RubyHouseWeb
         // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            // Bootstrap css
+            bundles.Add(new StyleBundle("~/bundles/bootstrap/css").Include(
+                        "~/Content/bootstrap.min.css", new CssRewriteUrlTransform()));
+
+            // Homer style
+            bundles.Add(new StyleBundle("~/bundles/homer/css").Include(
+                      "~/Content/style.css", new CssRewriteUrlTransform()));
+
+            // Font Awesome icons style
+            bundles.Add(new StyleBundle("~/bundles/font-awesome/css").Include(
+                      "~/Content/font-awesome.min.css", new CssRewriteUrlTransform()));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -19,7 +31,7 @@ namespace RubyHouseWeb
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap/js").Include(
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(

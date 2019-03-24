@@ -9,27 +9,25 @@
 
     <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 
-    <!-- Add local styles, mostly for plugins css file -->
-    @if (IsSectionDefined("Styles"))
-    {@RenderSection("Styles", required: false)}
+    @Styles.Render("~/Content/css")
 
     <!-- Primary HOMER style -->
     @Styles.Render("~/bundles/font-awesome/css")
-    @Styles.Render("~/bundles/animate/css")
     @Styles.Render("~/bundles/bootstrap/css")
-    @Styles.Render("~/bundles/peicon7stroke/css")
     @Styles.Render("~/bundles/homer/css")
 </head>
 <body class="blank">
 
     <!-- Simple splash screen-->
-    <div class="splash"> <div class="color-line"></div><div class="splash-title">@*<h1>Homer - Responsive Admin Theme</h1><p>Special AngularJS Admin Theme for small and medium webapp with very clean and aesthetic style and feel. </p>*@<img src="images/loading-bars.svg" width="64" height="64" /> </div> </div>
-    @RenderBody()
+    <div class="container body-content">
+        <div class="">
+            @RenderBody()
+        </div>
+    </div>
 
     <!-- Section for main scripts render -->
-    @Scripts.Render("~/bundles/jquery/js")
+    @Scripts.Render("~/bundles/jquery");
     @Scripts.Render("~/bundles/bootstrap/js")
-    @Scripts.Render("~/bundles/homer/js")
 
     <!-- Handler for local scripts -->
     @RenderSection("scripts", required: false)
