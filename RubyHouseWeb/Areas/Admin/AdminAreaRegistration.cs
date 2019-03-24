@@ -17,7 +17,8 @@ namespace RubyHouseWeb.Areas.Admin
             context.MapRoute(
                 "Admin_default",
                 "Admin/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { action = "Index", Controller = "Home" ,id = UrlParameter.Optional },
+                new[] { "RubyHouseWeb.Areas.Admin.Controllers" }
             );
         }
     }

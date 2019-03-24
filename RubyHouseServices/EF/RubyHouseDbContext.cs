@@ -17,6 +17,8 @@ namespace RubyHouseServices.EF
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<News> News { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
+        public DbSet<Permission> Permissions { get; set; }
+        public DbSet<GroupPermission> GroupPermissions { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
