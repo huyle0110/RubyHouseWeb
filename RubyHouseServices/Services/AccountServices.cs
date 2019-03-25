@@ -10,9 +10,6 @@ namespace RubyHouseServices.Services
 {
     public class AccountServices : IAccountServices
     {
-        public AccountServices(/*RubyHouseDbContext context*/)
-        {
-        }
         public bool Login(User model)
         {
             RubyHouseDbContext _context;

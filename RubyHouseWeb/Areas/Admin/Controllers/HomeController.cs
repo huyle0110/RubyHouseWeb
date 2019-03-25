@@ -12,14 +12,15 @@ namespace RubyHouseWeb.Areas.Admin.Controllers
 {
     public class HomeController : Controller
     {
-        //private readonly IAccountServices _accountServices;
-        //public HomeController(IAccountServices accountServices)
-        //{
-        //    _accountServices = accountServices;
-        //}
+        private readonly IAccountServices _accountServices;
+        public HomeController(IAccountServices accountServices)
+        {
+            _accountServices = accountServices;
+        }
         // GET: Admin/Home
         public ActionResult Index()
         {
+            
             return View();
         }
 

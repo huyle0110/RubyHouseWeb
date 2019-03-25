@@ -1,10 +1,11 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
+using DIRegister;
 using RubyHouseServices.IServices;
+using RubyHouseWeb.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -16,39 +17,6 @@ namespace RubyHouseWeb
     {
         protected void Application_Start()
         {
-            var builder = new ContainerBuilder();
-
-            builder.RegisterControllers(typeof(MvcApplication).Assembly);
-            //builder
-            //    .RegisterAssemblyTypes(assembly)
-            //    .AssignableTo<IAccountServices>()
-            //    .AsImplementedInterfaces()
-            //    .InstancePerRequest();
-            // OPTIONAL: Register model binders that require DI.
-            builder.RegisterModelBinders(typeof(MvcApplication).Assembly);
-            builder.RegisterModelBinderProvider();
-
-            // OPTIONAL: Register web abstractions like HttpContextBase.
-            builder.RegisterModule<AutofacWebTypesModule>();
-            //builder.RegisterModule(RubyHouseServices.IServices.IAccountServices);
-
-            // OPTIONAL: Enable property injection in view pages.
-            builder.RegisterSource(new ViewRegistrationSource());
-
-            // OPTIONAL: Enable property injection into action filters.
-            builder.RegisterFilterProvider();
-
-            // OPTIONAL: Enable action method parameter injection (RARE).
-            //builder.InjectActionInvoker();
-
-            // Set the dependency resolver to be Autofac.
-            var container = builder.Build();
-            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
-
-            //builder.RegisterType<ExtensibleActionInvoker>()
-            //    .As<IActionInvoker>()
-            //    .WithParameter("injectActionMethodParameters", true);
-
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
@@ -56,6 +24,33 @@ namespace RubyHouseWeb
 
             //Log4net
             log4net.Config.XmlConfigurator.Configure();
+
+            RegisterDependencies();
+        }
+        public class WebDependencyRegistration : Module
+        {
+            protected override void Load(ContainerBuilder builder)
+            {
+                if (builder == null)
+                {
+                    throw new ArgumentNullException(nameof(builder),
+                            "Argument builder can not be null.");
+                }
+                //The line below tells autofac, when a controller is initialized, pass into its constructor, the implementations of the required interfaces
+                builder.RegisterControllers(System.Reflection.Assembly.GetExecutingAssembly());
+                base.Load(builder);
+            }
+        }
+        private void RegisterDependencies()
+        {
+            //Logic Layer Dependency
+            var builder = new ContainerBuilder();
+            builder.RegisterModule(new ServicesModule());
+            builder.RegisterModule(new WebDependencyRegistration());
+            // OPTIONAL: Enable property injection into action filters.
+            builder.RegisterFilterProvider();
+            //set Autofac as default Dependency Resolver for application
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(builder.Build()));
         }
     }
 }

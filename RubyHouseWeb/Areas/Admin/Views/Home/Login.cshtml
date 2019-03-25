@@ -2,32 +2,32 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout_Blank.cshtml";
 }
 @model RubyHouseWeb.Areas.Admin.Models.LoginModel
+
 <div class="login-container">
     <div class="row">
-        <div class="">
+        <div class="col-md-12">
             <div class="text-center m-b-md">
                 <h3>Ruby Shop</h3>
             </div>
-            <div class="hpanel">
+            <div class="panel">
                 <div class="panel-body">
-                    @using (Ajax.BeginForm("Login", "Home", new AjaxOptions { HttpMethod = "POST" }, new { @id = "loginForm", @class = "form-horizontal" }))
+                    @using (Ajax.BeginForm("Login", "Home", new AjaxOptions { HttpMethod = "POST" }, new { @id = "loginForm", @class = "" }))
                     {
                         @Html.AntiForgeryToken()
                         <div class="form-group">
                             <label class="control-label" for="UserName">Tên đăng nhập</label>
                             @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @title = "Vui lòng nhập tên đăng nhập của bạn" })
-                            @Html.ValidationMessageFor(m => m.UserName)
+                            @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="Password">Mật khẩu</label>
                             @Html.PasswordFor(m => m.Password, new { @class = "form-control", @title = "Vui lòng nhập mật khẩu của bạn" })
-                            @Html.ValidationMessageFor(m => m.Password)
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                         </div>
-                        <div class="form-group">
-                            <label>@Html.CheckBoxFor(m => m.RememberMe) &nbsp; Lưu tên đăng nhập</label>
-                            
+                        <div class="form-group form-check">
+                            <label>@Html.CheckBoxFor(m => m.RememberMe, new { @class = "form-check-input" }) &nbsp; Lưu tên đăng nhập</label>
                         </div>
-                        <button class="btn btn-success btn-block">Đăng nhập</button>
+                        <button type="submit" class="btn btn-success">Đăng nhập</button>
                     }
                 </div>
             </div>

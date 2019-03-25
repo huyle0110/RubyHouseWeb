@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RubyHouseWeb", "RubyHouseWe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RubyHouseServices", "RubyHouseServices\RubyHouseServices.csproj", "{46276DD8-7C2D-46F7-980B-B699FB1B0695}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIRegister", "DIRegister\DIRegister.csproj", "{3D496649-EA06-4A21-9666-35D1FE140E3C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{46276DD8-7C2D-46F7-980B-B699FB1B0695}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46276DD8-7C2D-46F7-980B-B699FB1B0695}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46276DD8-7C2D-46F7-980B-B699FB1B0695}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D496649-EA06-4A21-9666-35D1FE140E3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D496649-EA06-4A21-9666-35D1FE140E3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D496649-EA06-4A21-9666-35D1FE140E3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D496649-EA06-4A21-9666-35D1FE140E3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

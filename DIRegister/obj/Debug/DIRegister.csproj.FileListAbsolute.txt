@@ -1,0 +1,15 @@
+C:\My Project\RubyHouseWeb\DIRegister\bin\Debug\DIRegister.dll
+C:\My Project\RubyHouseWeb\DIRegister\bin\Debug\DIRegister.pdb
+C:\My Project\RubyHouseWeb\DIRegister\bin\Debug\Autofac.dll
+C:\My Project\RubyHouseWeb\DIRegister\bin\Debug\RubyHouseServices.dll
+C:\My Project\RubyHouseWeb\DIRegister\bin\Debug\EntityFramework.dll
+C:\My Project\RubyHouseWeb\DIRegister\bin\Debug\RubyHouseServices.pdb
+C:\My Project\RubyHouseWeb\DIRegister\bin\Debug\RubyHouseServices.dll.config
+C:\My Project\RubyHouseWeb\DIRegister\bin\Debug\Autofac.pdb
+C:\My Project\RubyHouseWeb\DIRegister\bin\Debug\Autofac.xml
+C:\My Project\RubyHouseWeb\DIRegister\bin\Debug\EntityFramework.xml
+C:\My Project\RubyHouseWeb\DIRegister\obj\Debug\DIRegister.csprojAssemblyReference.cache
+C:\My Project\RubyHouseWeb\DIRegister\obj\Debug\DIRegister.csproj.CoreCompileInputs.cache
+C:\My Project\RubyHouseWeb\DIRegister\obj\Debug\DIRegister.csproj.CopyComplete
+C:\My Project\RubyHouseWeb\DIRegister\obj\Debug\DIRegister.dll
+C:\My Project\RubyHouseWeb\DIRegister\obj\Debug\DIRegister.pdb
