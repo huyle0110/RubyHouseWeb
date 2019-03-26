@@ -13,19 +13,15 @@
     @Styles.Render("~/bundles/font-awesome/css")
     @Styles.Render("~/bundles/animate/css")
     @Styles.Render("~/bundles/bootstrap/css")
-    @Styles.Render("~/bundles/peicon7stroke/css")
 
     <!-- Add local styles, mostly for plugins css file -->
     @if (IsSectionDefined("Styles"))
     {@RenderSection("Styles", required: false)}
-
-    <!-- Primary HOMER style -->
+   
+    @Styles.Render("~/bundles/bootstrapdatepicker/css")
     @Styles.Render("~/bundles/homer/css")
 
     @RenderSection("css", required: false)
-
-    <script src="~/Scripts/common.js"></script>
-
 </head>
 <body>
     <!-- Header -->
@@ -37,7 +33,6 @@
     <aside id="menu">
         @Html.Partial("_Navigation")
     </aside>
-
     <!-- Main view  -->
     <div id="wrapper">
         @RenderBody()
@@ -48,13 +43,15 @@
     <!-- Section for main scripts render -->
     @Scripts.Render("~/bundles/jquery/js")
     @Scripts.Render("~/bundles/bootstrap/js")
+
+    @Scripts.Render("~/bundles/bootstrapdatepicker/js")
     @Scripts.Render("~/bundles/homer/js")
 
     <!-- Handler for local scripts -->
     @RenderSection("scripts", required: false)
-
     @*<div class="splash">
-        <div class="color-line"></div><div class="splash-title"><img src="~/Content/SystemImage/loading-bars.svg" width="64" height="64"> </div>
-    </div>*@
+            <div class="color-line"></div><div class="splash-title"><img src="~/Content/SystemImage/loading-bars.svg" width="64" height="64"> </div>
+        </div>*@
 </body>
+
 </html>
