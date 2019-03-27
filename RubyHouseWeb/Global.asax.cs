@@ -1,7 +1,6 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
 using DIRegister;
-using RubyHouseServices.IServices;
 using RubyHouseWeb.Utils;
 using System;
 using System.Collections.Generic;

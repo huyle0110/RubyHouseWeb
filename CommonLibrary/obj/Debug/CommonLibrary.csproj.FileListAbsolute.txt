@@ -1,0 +1,6 @@
+C:\My Project\RubyHouseWeb\CommonLibrary\bin\Debug\CommonLibrary.dll
+C:\My Project\RubyHouseWeb\CommonLibrary\bin\Debug\CommonLibrary.pdb
+C:\My Project\RubyHouseWeb\CommonLibrary\obj\Debug\CommonLibrary.csprojAssemblyReference.cache
+C:\My Project\RubyHouseWeb\CommonLibrary\obj\Debug\CommonLibrary.csproj.CoreCompileInputs.cache
+C:\My Project\RubyHouseWeb\CommonLibrary\obj\Debug\CommonLibrary.dll
+C:\My Project\RubyHouseWeb\CommonLibrary\obj\Debug\CommonLibrary.pdb

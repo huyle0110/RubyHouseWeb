@@ -165,6 +165,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
@@ -222,6 +223,9 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Areas\Admin\Views\Shared\_Footer.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Detail.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Edit.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\homer.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -737,6 +741,10 @@
     <ProjectReference Include="..\DIRegister\DIRegister.csproj">
       <Project>{3D496649-EA06-4A21-9666-35D1FE140E3C}</Project>
       <Name>DIRegister</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntityFrameWorkModule\EntityFrameWorkModule.csproj">
+      <Project>{B9B8FAFC-35CB-4A88-8352-BDF3D833276F}</Project>
+      <Name>EntityFrameWorkModule</Name>
     </ProjectReference>
     <ProjectReference Include="..\RubyHouseServices\RubyHouseServices.csproj">
       <Project>{46276DD8-7C2D-46F7-980B-B699FB1B0695}</Project>

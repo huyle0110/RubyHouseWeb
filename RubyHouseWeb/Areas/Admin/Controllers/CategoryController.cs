@@ -1,5 +1,4 @@
 ﻿using EntityFrameWorkModule.IServices;
-using EntityFrameWorkModule.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,15 +7,15 @@ using System.Web.Mvc;
 
 namespace RubyHouseWeb.Areas.Admin.Controllers
 {
-    public class ProductController : Controller
+    public class CategoryController : Controller
     {
-        private readonly IProductServices _productServices;
+        private readonly ICategoryServices _categoryServices;
 
-        public ProductController(IProductServices productServices)
+        public CategoryController(ICategoryServices categoryServices)
         {
-            _productServices = productServices;
+            _categoryServices = categoryServices;
         }
-        // GET: Admin/Product
+        // GET: Admin/Category
         public ActionResult Index()
         {
             return View();
@@ -26,13 +25,6 @@ namespace RubyHouseWeb.Areas.Admin.Controllers
         public PartialViewResult Add()
         {
             return PartialView();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public JsonResult Add(Product model)
-        {
-            return Json(new { });
         }
 
         [HttpGet]
@@ -46,14 +38,5 @@ namespace RubyHouseWeb.Areas.Admin.Controllers
         {
             return PartialView();
         }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public JsonResult Edit(Product model)
-        {
-            return Json(new { });
-        }
-
-
     }
 }

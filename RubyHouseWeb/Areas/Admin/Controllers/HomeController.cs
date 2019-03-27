@@ -1,5 +1,4 @@
-﻿using RubyHouseServices.EF;
-using RubyHouseServices.IServices;
+﻿using EntityFrameWorkModule.IServices;
 using RubyHouseWeb.Areas.Admin.Models;
 using System;
 using System.Collections.Generic;

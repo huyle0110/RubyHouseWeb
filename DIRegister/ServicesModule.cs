@@ -1,6 +1,4 @@
 ﻿using Autofac;
-using RubyHouseServices.IServices;
-using RubyHouseServices.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
