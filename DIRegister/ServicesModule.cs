@@ -13,7 +13,7 @@ namespace DIRegister
         protected override void Load(ContainerBuilder builder)
         {
             //builder.RegisterType<AccountServices>().As<IAccountServices>().InstancePerDependency();
-            builder.RegisterAssemblyTypes(Assembly.Load("RubyHouseServices"))
+            builder.RegisterAssemblyTypes(Assembly.Load("EntityFrameWorkModule"))
                 .Where(s => s.Name.EndsWith("Services"))
                 .AsImplementedInterfaces()
                 .InstancePerDependency();
