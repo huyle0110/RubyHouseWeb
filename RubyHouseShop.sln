@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RubyHouseWeb", "RubyHouseWeb\RubyHouseWeb.csproj", "{1E716E39-4D09-4C2C-A5A4-5919A86E7C88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RubyHouseServices", "RubyHouseServices\RubyHouseServices.csproj", "{46276DD8-7C2D-46F7-980B-B699FB1B0695}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIRegister", "DIRegister\DIRegister.csproj", "{3D496649-EA06-4A21-9666-35D1FE140E3C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameWorkModule", "EntityFrameWorkModule\EntityFrameWorkModule.csproj", "{B9B8FAFC-35CB-4A88-8352-BDF3D833276F}"
@@ -23,10 +21,6 @@ Global
 		{1E716E39-4D09-4C2C-A5A4-5919A86E7C88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E716E39-4D09-4C2C-A5A4-5919A86E7C88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E716E39-4D09-4C2C-A5A4-5919A86E7C88}.Release|Any CPU.Build.0 = Release|Any CPU
-		{46276DD8-7C2D-46F7-980B-B699FB1B0695}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{46276DD8-7C2D-46F7-980B-B699FB1B0695}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{46276DD8-7C2D-46F7-980B-B699FB1B0695}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{46276DD8-7C2D-46F7-980B-B699FB1B0695}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3D496649-EA06-4A21-9666-35D1FE140E3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3D496649-EA06-4A21-9666-35D1FE140E3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D496649-EA06-4A21-9666-35D1FE140E3C}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -55,9 +55,9 @@ namespace RubyHouseWeb
                       "~/Vendor/jquery-validation/jquery.validate.min.js"));
 
             // Bootstrap Datepicker
-            bundles.Add(new ScriptBundle("~/bundles/bootstrapdatepicker/js").Include(
+            bundles.Add(new ScriptBundle("~/bundles/plugin/js").Include(
                       "~/Vendor/bootstrapdatepicker/bootstrap-datepicker.min.js"));
-            bundles.Add(new StyleBundle("~/bundles/bootstrapdatepicker/css").Include(
+            bundles.Add(new StyleBundle("~/bundles/plugin/css").Include(
                       "~/Vendor/bootstrapdatepicker/bootstrap-datepicker.min.css", new CssRewriteUrlTransform()));
         }
     }

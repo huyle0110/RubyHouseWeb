@@ -73,11 +73,5 @@
   <ItemGroup>
     <Folder Include="EF\" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\RubyHouseServices\RubyHouseServices.csproj">
-      <Project>{46276DD8-7C2D-46F7-980B-B699FB1B0695}</Project>
-      <Name>RubyHouseServices</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

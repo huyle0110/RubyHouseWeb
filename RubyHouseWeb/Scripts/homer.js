@@ -208,19 +208,3 @@ var displayImage = function (base64Data) {
     var src = "data:image/jpg;base64," + base64Data;
     $("#ImgCaptcha").attr('src', src);
 };
-function ReloadCaptCha(obj) {
-    $.ajax({
-        url: "/Captcha/ReloadCaptCha", // the URL of the controller action method
-        type: 'GET',
-        dataType: 'json',
-        contentType: 'application/json',
-        cache: false,
-        success: function (obj) {
-            imgs = obj;
-            displayImage(imgs.base64imgage);
-        },
-        error: function (req, status, error) {
-            window.location.reload();
-        }
-    });
-}

@@ -177,14 +177,34 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\RubyHouseAttributes.cs" />
     <Compile Include="Utils\RubyHouseSession.cs" />
+    <Compile Include="Utils\SessionConstant.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-datepicker\bootstrap-datepicker.css" />
+    <Content Include="Content\bootstrap-datepicker\bootstrap-datepicker.min.css" />
+    <Content Include="Content\bootstrap-datepicker\bootstrap-datepicker.standalone.css" />
+    <Content Include="Content\bootstrap-datepicker\bootstrap-datepicker.standalone.min.css" />
+    <Content Include="Content\bootstrap-datepicker\bootstrap-datepicker3.css" />
+    <Content Include="Content\bootstrap-datepicker\bootstrap-datepicker3.min.css" />
+    <Content Include="Content\bootstrap-datepicker\bootstrap-datepicker3.standalone.css" />
+    <Content Include="Content\bootstrap-datepicker\bootstrap-datepicker3.standalone.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\plugin\datatables\css\dataTables.bootstrap.min.css" />
+    <Content Include="Content\plugin\datatables\js\dataTables.bootstrap.min.js" />
+    <Content Include="Content\plugin\datatables\js\dataTables.fixedColumns.min.js" />
+    <Content Include="Content\plugin\datatables\js\dataTables.fixedHeader.min.js" />
+    <Content Include="Content\plugin\datatables\js\dataTables.responsive.min.js" />
+    <Content Include="Content\plugin\datatables\js\jquery.dataTables.min.js" />
+    <Content Include="Content\plugin\datatables\js\jquery.dataTables.yadcf.js" />
+    <Content Include="Content\plugin\multiselectjs\multiselect.js" />
+    <Content Include="Content\plugin\multiselectjs\multiselect.min.js" />
+    <Content Include="Content\plugin\select2\select2.min.css" />
+    <Content Include="Content\plugin\select2\select2.min.js" />
     <Content Include="Content\style.css" />
     <Content Include="Content\SystemImage\loading-bars.svg" />
     <Content Include="favicon.ico" />
@@ -226,6 +246,14 @@
     <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Category\Detail.cshtml" />
     <Content Include="Areas\Admin\Views\Category\Edit.cshtml" />
+    <Content Include="Content\bootstrap-datepicker\xxxbootstrap-datepicker.css.map" />
+    <Content Include="Content\bootstrap-datepicker\xxxbootstrap-datepicker.min.css.map" />
+    <Content Include="Content\bootstrap-datepicker\xxxbootstrap-datepicker.standalone.css.map" />
+    <Content Include="Content\bootstrap-datepicker\xxxbootstrap-datepicker.standalone.min.css.map" />
+    <Content Include="Content\bootstrap-datepicker\xxxbootstrap-datepicker3.css.map" />
+    <Content Include="Content\bootstrap-datepicker\xxxbootstrap-datepicker3.min.css.map" />
+    <Content Include="Content\bootstrap-datepicker\xxxbootstrap-datepicker3.standalone.css.map" />
+    <Content Include="Content\bootstrap-datepicker\xxxbootstrap-datepicker3.standalone.min.css.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\homer.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -745,10 +773,6 @@
     <ProjectReference Include="..\EntityFrameWorkModule\EntityFrameWorkModule.csproj">
       <Project>{B9B8FAFC-35CB-4A88-8352-BDF3D833276F}</Project>
       <Name>EntityFrameWorkModule</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\RubyHouseServices\RubyHouseServices.csproj">
-      <Project>{46276DD8-7C2D-46F7-980B-B699FB1B0695}</Project>
-      <Name>RubyHouseServices</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
