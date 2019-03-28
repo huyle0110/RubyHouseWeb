@@ -1,10 +1,14 @@
 ﻿var dateOption = {
-    autoclose: true,
-    format: 'mm/dd/yyyy',
-    language: 'vn',
+    clearBtn: true,
+    orientation: "bottom left",
+    keyboardNavigation: false,
+    showWeek: false,
     todayHighlight: true,
-
-};
+    autoclose: true,
+    language = "vi",
+    format = "dd/mm/yyyy",
+    //calendarWeeks: true,
+}
 $(document).ready(function () {
     $('.FullDateOption').datepicker('set', dateOption);
 });
