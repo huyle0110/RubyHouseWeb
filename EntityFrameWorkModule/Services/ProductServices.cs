@@ -1,4 +1,6 @@
 ﻿using EntityFrameWorkModule.IServices;
+using EntityFrameWorkModule.RequestModel;
+using EntityFrameWorkModule.ResultModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +11,9 @@ namespace EntityFrameWorkModule.Services
 {
     public class ProductServices : IProductServices
     {
+        public SearchProductResultModel search(SearchProductRequestModel model)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EntityFrameWorkModule.RequestModel;
+using EntityFrameWorkModule.ResultModel;
 
 namespace EntityFrameWorkModule.IServices
 {
     public interface IProductServices
     {
+        SearchProductResultModel search(SearchProductRequestModel model);
     }
 }

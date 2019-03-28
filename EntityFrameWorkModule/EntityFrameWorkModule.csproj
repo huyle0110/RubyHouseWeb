@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\EnumDefine.cs" />
     <Compile Include="IServices\IAccountServices.cs" />
     <Compile Include="IServices\ICategoryServices.cs" />
     <Compile Include="IServices\IProductServices.cs" />
@@ -62,6 +63,8 @@
     <Compile Include="Model\RubyHouseDbContext.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestModel\SearchProductRequestModel.cs" />
+    <Compile Include="ResultModel\Product\SearchProductResultModel.cs" />
     <Compile Include="Services\AccountServices.cs" />
     <Compile Include="Services\CategoryServices.cs" />
     <Compile Include="Services\ProductServices.cs" />

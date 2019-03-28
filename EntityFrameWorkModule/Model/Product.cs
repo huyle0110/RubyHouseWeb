@@ -1,4 +1,4 @@
-﻿using RubyHouseServices.Common;
+﻿using EntityFrameWorkModule.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,11 +18,10 @@ namespace EntityFrameWorkModule.Model
 
         public decimal? Price { get; set; }
         public decimal? PromotionPrice { get; set; }
-        public decimal Discount { get; set; }
+        public decimal? Discount { get; set; }
 
         public string ImagePath { get; set; }
-        public long Quantity { get; set; }
-        //public long CategoryId { get; set; }
+        public long? Quantity { get; set; }
 
         public bool IsHot { get; set; }
         public ProductStatus Status { get; set; }

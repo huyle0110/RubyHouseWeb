@@ -1,5 +1,6 @@
 ﻿using EntityFrameWorkModule.IServices;
 using EntityFrameWorkModule.Model;
+using EntityFrameWorkModule.RequestModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,18 @@ namespace RubyHouseWeb.Areas.Admin.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        [HttpPost]
+        public JsonResult getData(SearchProductRequestModel model)
+        {
+            var result = _productServices.search(model);
+            return Json(new
+            {
+                recordsTotal = result.totalRecord,
+                recordsFiltered = result.totalRecord,
+                data = result.resultList
+            });
         }
 
         [HttpGet]
