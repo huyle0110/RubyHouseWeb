@@ -228,6 +228,7 @@
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="Areas\Admin\Views\Shared\_Header.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Navigation.cshtml" />
+    <Content Include="Scripts\autoNumeric.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\common.js" />
@@ -256,6 +257,7 @@
     <Content Include="Content\plugin\bootstrap-datepicker\xxxbootstrap-datepicker3.standalone.css.map" />
     <Content Include="Content\plugin\bootstrap-datepicker\xxxbootstrap-datepicker3.standalone.min.css.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\customformat.js" />
     <Content Include="Scripts\homer.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -268,6 +270,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\locales\bootstrap-datepicker.vi.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\numeral.js" />
     <Content Include="Vendor\animate.css\animate.css" />
     <Content Include="Vendor\animate.css\animate.min.css" />
     <Content Include="Vendor\animate.css\Gruntfile.js" />
