@@ -12,11 +12,32 @@ namespace RubyHouseWeb
             bundles.Add(new StyleBundle("~/bundles/homer/css").Include(
                       "~/Content/style.css", new CssRewriteUrlTransform()));
 
-            // Homer script
+            bundles.Add(new StyleBundle("~/bundles/site/css").Include(
+                      "~/Content/Site.css", new CssRewriteUrlTransform()));
+
+            bundles.Add(new ScriptBundle("~/bundles/jquery/js").Include(
+                      "~/Scripts/jquery-3.3.1.min.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/homer/js").Include(
                       "~/Vendor/metisMenu/dist/metisMenu.min.js",
                       "~/Scripts/homer.js",
                       "~/Scripts/common.js"));
+
+            // Plugin JS
+            bundles.Add(new ScriptBundle("~/bundles/plugin/js").Include(
+                      "~/Vendor/bootstrap/dist/js/bootstrap.min.js",
+                      "~/Vendor/bootstrapdatepicker/bootstrap-datepicker.min.js",
+                      "~/Vendor/jquery-validation/jquery.validate.min.js",
+                      "~/Vendor/datatables/media/js/jquery.dataTables.min.js",
+                      "~/Scripts/locales/bootstrap-datepicker.vi.min.js"
+                      ));
+
+            // Plugin CSS
+            bundles.Add(new StyleBundle("~/bundles/plugin/css").Include(
+                      "~/Vendor/bootstrap/dist/css/bootstrap.min.css",
+                      "~/Content/plugin/bootstrap-datepicker/bootstrap-datepicker.min.css",
+                      "~/Content/plugin/datatables/css/dataTables.bootstrap.min.css",
+                      "~/Vendor/toastr/build/toastr.min.css"));
 
             // Animate.css
             bundles.Add(new StyleBundle("~/bundles/animate/css").Include(
@@ -25,40 +46,6 @@ namespace RubyHouseWeb
             // Font Awesome icons style
             bundles.Add(new StyleBundle("~/bundles/font-awesome/css").Include(
                       "~/Vendor/fontawesome/css/font-awesome.min.css", new CssRewriteUrlTransform()));
-
-            // Bootstrap style
-            bundles.Add(new StyleBundle("~/bundles/bootstrap/css").Include(
-                      "~/Vendor/bootstrap/dist/css/bootstrap.min.css", new CssRewriteUrlTransform()));
-
-            // Bootstrap
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap/js").Include(
-                      "~/Vendor/bootstrap/dist/js/bootstrap.min.js"));
-
-            // jQuery
-            bundles.Add(new ScriptBundle("~/bundles/jquery/js").Include(
-                      "~/Vendor/jquery/dist/jquery.min.js"));
-
-            // Toastr style
-            bundles.Add(new StyleBundle("~/bundles/toastr/css").Include(
-                      "~/Vendor/toastr/build/toastr.min.css"));
-
-            // Moment
-            bundles.Add(new ScriptBundle("~/bundles/moment/js").Include(
-                      "~/Vendor/moment/moment.js"));
-
-            // Datatables
-            bundles.Add(new ScriptBundle("~/bundles/datatables/js").Include(
-                      "~/Vendor/datatables/media/js/jquery.dataTables.min.js"));
-
-            // jQuery Validation
-            bundles.Add(new ScriptBundle("~/bundles/validation/js").Include(
-                      "~/Vendor/jquery-validation/jquery.validate.min.js"));
-
-            // Bootstrap Datepicker
-            bundles.Add(new ScriptBundle("~/bundles/plugin/js").Include(
-                      "~/Vendor/bootstrapdatepicker/bootstrap-datepicker.min.js"));
-            bundles.Add(new StyleBundle("~/bundles/plugin/css").Include(
-                      "~/Vendor/bootstrapdatepicker/bootstrap-datepicker.min.css", new CssRewriteUrlTransform()));
         }
     }
 }

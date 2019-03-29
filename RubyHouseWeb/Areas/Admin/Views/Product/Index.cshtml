@@ -23,43 +23,17 @@
                         <div class="row">
                             <div class="col-sm-3">
                                 <div class="form-group">
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label">Mã sản phẩm</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" name="productCode" id="productCode" value="" maxlength="20" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">Từ ngày</label>
+                                    <label class="col-sm-3 control-label">Mã sản phẩm</label>
                                     <div class="col-sm-9">
-                                        <div class="input-group date" data-provide="datepicker">
-                                            <input type="text" class="form-control FullDateInput" id="fromDate" name="fromDate">
-                                            <div class="input-group-addon">
-                                                <span class="glyphicon glyphicon-th"></span>
-                                            </div>
-                                        </div>
+                                        <input type="text" class="form-control" name="productCode" id="productCode" value="" maxlength="20" />
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group">
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label">Tên sản phẩm</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" name="productName" id="productName" value="" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">Đến ngày</label>
+                                    <label class="col-sm-3 control-label">Tên sản phẩm</label>
                                     <div class="col-sm-9">
-                                        <div class="input-group date" data-provide="datepicker">
-                                            <input type="text" class="form-control FullDateInput" id="toDate" name="toDate">
-                                            <div class="input-group-addon">
-                                                <span class="glyphicon glyphicon-th"></span>
-                                            </div>
-                                        </div>
+                                        <input type="text" class="form-control" name="productName" id="productName" value="" />
                                     </div>
                                 </div>
                             </div>
@@ -82,6 +56,34 @@
                                             <option value="1">Hoạt động</option>
                                             <option value="0">Không hoạt động</option>
                                         </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Từ ngày</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group date">
+                                            <input type="text" class="form-control FullDateInput" id="fromDate" name="fromDate">
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Đến ngày</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group">
+                                            <input class="form-control FullDateInput" id="toDate" name="toDate">
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -121,6 +123,8 @@
                                     <th class="text-center">Tên sản phẩm</th>
                                     <th class="text-center">Nhóm sản phẩm</th>
                                     <th class="text-center">Giá</th>
+                                    <th class="text-center">Khuyến mãi</th>
+                                    <th class="text-center">Tồn kho</th>
                                     <th class="text-center">Người tạo</th>
                                     <th class="text-center">Ngày tạo</th>
                                     <th class="text-center">Ngày cập nhật</th>
@@ -145,35 +149,138 @@
             </div>
             <div class="modal-body"></div>
             <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="productObject.submitAdd()">Lưu</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
             </div>
         </div>
 
     </div>
 </div>
-
-
-<script src="~/Vendor/jquery/dist/jquery.min.js"></script>
-<script>
-    $(document).ready(function () {
-
-    });
-
-    var productObject = {
-        initTable: function () {
-
-        },
-        showPopupAdd: function () {
-
-        },
-        showPopupView: function () {
-
-        },
-        showPopupEdit: function () {
-
-        },
-        buttonDelete: function () {
-
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            var tableProduct;
+        });
+        var optionValidate = {
+            rules: {
+                ProductName: {
+                    required: true
+                },
+                Code: {
+                    required: true
+                },
+            },
+            messages: {
+                ProductName: {
+                    required: "Vui lòng nhập"
+                },
+                Code: {
+                    required: "Vui lòng nhập"
+                },
+            }
         }
-    }
-</script>
+        var productObject = {
+            initTable: function () {
+                tableProduct = $('#tbProduct').DataTable({
+                    "lengthMenu": [[5, 10, 25, 50], [5, 10, 25, 50]],
+                    "pageLength": 10,
+                    "bLengthChange": true,
+                    "searching": false,
+                    "proccessing": true,
+                    "scrollX": true,
+                    "ordering": false,
+                    "serverSide": true,
+                    'fnDrawCallback': function () {
+                        productObject.fnCallBack();
+                    },
+                    "ajax": {
+                        url: "/MM/DealerLimitMM/_GetDataListInau",
+                        type: 'POST',
+                        "data": function (d) {
+                            var param = {
+                                dealerId: $('#dealerId').val().trim(),
+                                limitType: $('#limitType').val(),
+                                effectiveDateFrom: $('#fromDate').val(),
+                                effectiveDateTo: $('#toDate').val(),
+                            };
+                            $.extend(d, param);
+                        }
+                    },
+                    "language": {
+                        "search": "",
+                        "searchPlaceholder": "Tìm theo mã...",
+                        "lengthMenu": "Hiển thị _MENU_",
+                        "zeroRecords": "Không tìm thấy dữ liệu",
+                        "info": "Đang hiển thị _START_ đến _END_ của _TOTAL_ dữ liệu",
+                        "infoEmpty": "Không tìm thấy dữ liệu",
+                        "infoFiltered": "(lọc từ _MAX_ tất cả)",
+                        "paginate": {
+                            "first": "Đầu",
+                            "last": "Cuối",
+                            "next": icon_next,
+                            "previous": icon_review
+                        },
+                    },
+                    "dom": '<"top">rt<"bottom"<"col-sm-4"i><"col-sm-8"pl>>',
+                    "columns": [
+                        {
+                            "mRender": function (data, type, row) {
+                                return '<input type="checkbox" name="cbSelect" id="cbSelect"/>';
+                            }, "className": "text-center"
+                        },
+                        { "data": "dealerId", "class": "text-center" },
+                        { "data": "limitTypeName", "class": "text-center" },
+                        { "data": "dealerLimitList.1.transLimitAmount", "class": "numberinput4" },
+                        { "data": "dealerLimitList.1.dailyLimitAmount", "class": "numberinput4" },
+                        { "data": "dealerLimitList.1.maxTermByMonth", "class": "numberinput2" },
+                        { "data": "dealerLimitList.0.transLimitAmount", "class": "numberinput4" },
+                        { "data": "dealerLimitList.0.dailyLimitAmount", "class": "numberinput4" },
+                        { "data": "dealerLimitList.0.maxTermByMonth", "class": "numberinput2" },
+                        { "data": "strEffectiveDate", "class": "text-center" },
+                        { "data": "limitStatusNameV2", "class": "text-left" },
+                        { "data": "lastUserUpdated", "class": "text-left" },
+                        { "data": "strLastDatetimeUpdated", "class": "text-center" },
+                    ],
+                });
+            },
+            fnCallBack: function () {
+
+            },
+            showPopupAdd: function () {
+                $.ajax({
+                    type: 'GET',
+                    url: '/admin/product/add',
+                    success: function (result) {
+                        var content = $('#addModal').find('.modal-body');
+                        content.html(result);
+                        commonAddEdit.validateAdd();
+                        $('#addModal').modal('show');
+                    }
+                });
+            },
+            showPopupView: function () {
+
+            },
+            showPopupEdit: function () {
+
+            },
+            buttonDelete: function () {
+
+            },
+            submitAdd: function () {
+                if ($('#formAdd').valid()) {
+                    $('#formAdd').submit();
+                }
+            }
+        }
+
+        var commonAddEdit = {
+            validateAdd: function () {
+                $('#formAdd').validate(optionValidate);
+            },
+            validateEdit: function () {
+                $('#formEdit').validate(optionValidate);
+            }
+        }
+    </script>
+}

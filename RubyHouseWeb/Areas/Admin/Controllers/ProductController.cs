@@ -1,6 +1,7 @@
 ﻿using EntityFrameWorkModule.IServices;
 using EntityFrameWorkModule.Model;
 using EntityFrameWorkModule.RequestModel;
+using RubyHouseWeb.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +39,7 @@ namespace RubyHouseWeb.Areas.Admin.Controllers
         [HttpGet]
         public PartialViewResult Add()
         {
-            return PartialView();
+            return PartialView(new ProductViewModel());
         }
 
         [HttpPost]

@@ -12,14 +12,13 @@
     <!-- Primary vendor style -->
     @Styles.Render("~/bundles/font-awesome/css")
     @Styles.Render("~/bundles/animate/css")
-    @Styles.Render("~/bundles/bootstrap/css")
 
-    <!-- Add local styles, mostly for plugins css file -->
     @if (IsSectionDefined("Styles"))
     {@RenderSection("Styles", required: false)}
-   
-    @Styles.Render("~/bundles/bootstrapdatepicker/css")
+
+    @Styles.Render("~/bundles/plugin/css")
     @Styles.Render("~/bundles/homer/css")
+    @Styles.Render("~/bundles/site/css")
 
     @RenderSection("css", required: false)
 </head>
@@ -36,19 +35,20 @@
     <!-- Main view  -->
     <div id="wrapper">
         @RenderBody()
-        <!-- Footer-->
         @Html.Partial("_Footer")
     </div>
-
-    <!-- Section for main scripts render -->
     @Scripts.Render("~/bundles/jquery/js")
-    @Scripts.Render("~/bundles/bootstrap/js")
-
-    @Scripts.Render("~/bundles/bootstrapdatepicker/js")
+    @Scripts.Render("~/bundles/plugin/js")
     @Scripts.Render("~/bundles/homer/js")
 
     <!-- Handler for local scripts -->
     @RenderSection("scripts", required: false)
+    <script>
+        // empty modal sau khi đóng
+        $('.modal-sub').on('hidden.bs.modal', function () {
+            $(this).find('.modal-body').empty();
+        });
+    </script>
     @*<div class="splash">
             <div class="color-line"></div><div class="splash-title"><img src="~/Content/SystemImage/loading-bars.svg" width="64" height="64"> </div>
         </div>*@

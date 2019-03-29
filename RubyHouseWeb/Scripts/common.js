@@ -7,12 +7,10 @@
     showWeek: false,
     todayHighlight: true,
     autoclose: true,
-    
     //calendarWeeks: true,
 }
 $(document).ready(function () {
     var lst_dateinput = $('input.FullDateInput');
-    debugger;
     var length = lst_dateinput.length;
     for (var i = 0; i < length; i++) {
         var item = lst_dateinput[i];
@@ -26,23 +24,15 @@ $(document).ready(function () {
             todayHighlight: true,
             autoclose: true,
         });
-        //if (!$(item).attr('datepicker-initialized')) {
-        //    $(item).datepicker(dateOption).on('show', function (e) {
-        //        if ($(this).attr('readonly')) {
-        //            $(this).datepicker('hide');
-        //        }
-        //    });
-        //}
-        //$(item).attr('datepicker-initialized', true);
-
-        $(document).on('show.bs.modal', '.modal', function () {
-            var zIndex = 1040 + (10 * $('.modal:visible').length);
-            $(this).css('z-index', zIndex);
-            setTimeout(function () {
-                $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
-            }, 0);
-        });
     }
+
+    $(document).on('show.bs.modal', '.modal', function () {
+        var zIndex = 1040 + (10 * $('.modal:visible').length);
+        $(this).css('z-index', zIndex);
+        //setTimeout(function () {
+        //    $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
+        //}, 0);
+    });
 });
 
 function setrangedate(f, t, datef, datet) {

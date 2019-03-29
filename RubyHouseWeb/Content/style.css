@@ -420,7 +420,7 @@
 }
 
 .modal-backdrop.in {
-    opacity: 0.4;
+    opacity: -0.6;
 }
 
 .modal-backdrop {
@@ -433,12 +433,10 @@
 }
 
 .modal-title {
-    font-size: 30px;
     font-weight: 300;
 }
 
 .modal-header {
-    padding: 40px 30px;
     background: #f7f9fa;
 }
 
@@ -452,6 +450,7 @@
 
 .modal-footer {
     background: #f7f9fa;
+    padding: 10px;
 }
 
 .hmodal-info .color-line {

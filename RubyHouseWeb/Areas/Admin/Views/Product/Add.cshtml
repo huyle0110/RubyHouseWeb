@@ -1,1 +1,23 @@
-﻿
+﻿@model RubyHouseWeb.Models.ProductViewModel
+
+@using (Ajax.BeginForm("Add", "Product", new AjaxOptions { HttpMethod = "POST", OnSuccess = "OnsuccessAdd" }, new { @class = "form-horizontal", @id = "formAdd", @autocomplete="off" }))
+{
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Tên sản phẩm</label>
+        <div class="col-sm-9">
+            @Html.TextBoxFor(m => m.ProductName, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Mã sản phẩm</label>
+        <div class="col-sm-9">
+            @Html.TextBoxFor(m => m.Code, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Giá</label>
+        <div class="col-sm-9">
+            @Html.TextBoxFor(m => m.Code, new { @class = "form-control" })
+        </div>
+    </div>
+}

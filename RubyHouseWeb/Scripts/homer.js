@@ -5,7 +5,6 @@
  */
 
 $(document).ready(function () {
-
     // Add special class to minimalize page elements when screen is less than 768px
     setBodySmall();
 
@@ -20,10 +19,10 @@ $(document).ready(function () {
     });
 
     // Initialize metsiMenu plugin to sidebar menu
-    $('#side-menu').metisMenu();
+    //$('#side-menu').metisMenu();
 
     // Initialize animate panel function
-    $('.animate-panel').animatePanel();
+    //$('.animate-panel').animatePanel();
 
     // Function for collapse hpanel
     $('.showhide').click(function (event) {
@@ -198,13 +197,4 @@ $.fn['animatePanel'] = function () {
         $('.stagger').removeClass(effect).removeClass('animated-panel').removeClass('stagger');
     }, animateTime)
 
-};
-
-var displayImage = function (base64Data) {
-    var imag = "<img "
-             + "src='" + "data:image/jpg;base64,"
-             + base64Data + "'/>";
-
-    var src = "data:image/jpg;base64," + base64Data;
-    $("#ImgCaptcha").attr('src', src);
 };
