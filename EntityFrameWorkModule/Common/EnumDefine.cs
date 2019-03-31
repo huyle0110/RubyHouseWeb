@@ -21,4 +21,10 @@ namespace EntityFrameWorkModule.Common
         NotYet,
         Read
     }
+    public enum UserType
+    {
+        Admin = 1,
+        Staff = 2,
+        Cust = 3
+    }
 }

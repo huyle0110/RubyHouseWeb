@@ -762,6 +762,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CommonLibrary\CommonLibrary.csproj">
+      <Project>{90810472-65EB-4A7D-88C1-D863B30F9EEA}</Project>
+      <Name>CommonLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DIRegister\DIRegister.csproj">
       <Project>{3D496649-EA06-4A21-9666-35D1FE140E3C}</Project>
       <Name>DIRegister</Name>

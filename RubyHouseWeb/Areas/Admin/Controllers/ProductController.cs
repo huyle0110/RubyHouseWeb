@@ -1,6 +1,8 @@
-﻿using EntityFrameWorkModule.IServices;
+﻿using CommonLibrary.Response;
+using EntityFrameWorkModule.IServices;
 using EntityFrameWorkModule.Model;
 using EntityFrameWorkModule.RequestModel;
+using EntityFrameWorkModule.Services;
 using RubyHouseWeb.Models;
 using System;
 using System.Collections.Generic;
@@ -13,6 +15,7 @@ namespace RubyHouseWeb.Areas.Admin.Controllers
     public class ProductController : Controller
     {
         private readonly IProductServices _productServices;
+        //private ProductServices _productServices = new ProductServices();
 
         public ProductController(IProductServices productServices)
         {
@@ -46,7 +49,16 @@ namespace RubyHouseWeb.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public JsonResult Add(Product model)
         {
-            return Json(new { });
+            model.CreateDate = DateTime.Now;
+            model.UpdatedDate = DateTime.Now;
+            var result = _productServices.Insert(model);
+            _productServices.Save();
+            var responModel = new ResponseModel()
+            {
+                Code = result,
+                Message = "Success"
+            };
+            return Json(responModel);
         }
 
         [HttpGet]

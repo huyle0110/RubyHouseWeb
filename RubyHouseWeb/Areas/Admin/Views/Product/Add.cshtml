@@ -2,6 +2,7 @@
 
 @using (Ajax.BeginForm("Add", "Product", new AjaxOptions { HttpMethod = "POST", OnSuccess = "OnsuccessAdd" }, new { @class = "form-horizontal", @id = "formAdd", @autocomplete="off" }))
 {
+    @Html.AntiForgeryToken();
     <div class="form-group">
         <label class="col-sm-3 control-label">Tên sản phẩm</label>
         <div class="col-sm-9">

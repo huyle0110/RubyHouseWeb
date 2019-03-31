@@ -26,6 +26,7 @@ namespace EntityFrameWorkModule.Model
         public bool IsHot { get; set; }
         public ProductStatus Status { get; set; }
         public long ViewCount { get; set; }
+        public bool showHeader { get; set; }
 
         public DateTime CreateDate { get; set; }
         public DateTime UpdatedDate { get; set; }

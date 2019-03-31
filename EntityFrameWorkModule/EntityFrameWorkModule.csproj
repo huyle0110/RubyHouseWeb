@@ -49,6 +49,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\EnumDefine.cs" />
+    <Compile Include="EF\GenericRepository.cs" />
+    <Compile Include="EF\IGenericRepository.cs" />
     <Compile Include="IServices\IAccountServices.cs" />
     <Compile Include="IServices\ICached.cs" />
     <Compile Include="IServices\ICategoryServices.cs" />
@@ -75,8 +77,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="EF\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

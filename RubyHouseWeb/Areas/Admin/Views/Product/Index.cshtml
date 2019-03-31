@@ -66,7 +66,7 @@
                                     <label class="col-sm-3 control-label">Từ ngày</label>
                                     <div class="col-sm-9">
                                         <div class="input-group date">
-                                            <input type="text" class="form-control FullDateInput" id="fromDate" name="fromDate">
+                                            <input type="text" class="form-control FullDateInput" value="" id="fromDate" name="fromDate">
                                             <span class="input-group-addon">
                                                 <span class="glyphicon glyphicon-calendar"></span>
                                             </span>
@@ -160,6 +160,7 @@
     <script>
         $(document).ready(function () {
             var tableProduct;
+            $('body').on('changeDate', '#fromDate', productObject.changeFromDate);
         });
         var optionValidate = {
             rules: {
@@ -267,6 +268,9 @@
             buttonDelete: function () {
 
             },
+            changeFromDate: function (selected) {
+                debugger;
+            },
             submitAdd: function () {
                 if ($('#formAdd').valid()) {
                     $('#formAdd').submit();
@@ -280,6 +284,15 @@
             },
             validateEdit: function () {
                 $('#formEdit').validate(optionValidate);
+            }
+        }
+
+        function OnsuccessAdd(result)
+        {
+            if (result.Code == 0) {
+
+            } else {
+
             }
         }
     </script>
