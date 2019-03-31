@@ -1,0 +1,9 @@
+D:\HuyLe\eFMS-WebApp\bin\netcoreapp2.1\eFMS.API.Common.deps.json
+D:\HuyLe\eFMS-WebApp\bin\netcoreapp2.1\eFMS.API.Common.dll
+D:\HuyLe\eFMS-WebApp\bin\netcoreapp2.1\eFMS.API.Common.pdb
+D:\HuyLe\eFMS-WebApp\WebAPI\eFMS.API.Common\obj\Debug\netcoreapp2.1\eFMS.API.Common.csprojAssemblyReference.cache
+D:\HuyLe\eFMS-WebApp\WebAPI\eFMS.API.Common\obj\Debug\netcoreapp2.1\eFMS.API.Common.csproj.CoreCompileInputs.cache
+D:\HuyLe\eFMS-WebApp\WebAPI\eFMS.API.Common\obj\Debug\netcoreapp2.1\eFMS.API.Common.AssemblyInfoInputs.cache
+D:\HuyLe\eFMS-WebApp\WebAPI\eFMS.API.Common\obj\Debug\netcoreapp2.1\eFMS.API.Common.AssemblyInfo.cs
+D:\HuyLe\eFMS-WebApp\WebAPI\eFMS.API.Common\obj\Debug\netcoreapp2.1\eFMS.API.Common.dll
+D:\HuyLe\eFMS-WebApp\WebAPI\eFMS.API.Common\obj\Debug\netcoreapp2.1\eFMS.API.Common.pdb
