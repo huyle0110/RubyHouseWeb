@@ -29,9 +29,10 @@ namespace RubyHouseWeb
                       "~/Vendor/bootstrapdatepicker/bootstrap-datepicker.min.js",
                       "~/Vendor/jquery-validation/jquery.validate.min.js",
                       "~/Vendor/datatables/media/js/jquery.dataTables.min.js",
-                      "~/Scripts/locales/bootstrap-datepicker.vi.min.js"
+                      "~/Scripts/locales/bootstrap-datepicker.vi.min.js",
+                      "~/Vendor/toastr/build/toastr.min.js"
                       ));
-
+            
             // Plugin CSS
             bundles.Add(new StyleBundle("~/bundles/plugin/css").Include(
                       "~/Vendor/bootstrap/dist/css/bootstrap.min.css",
