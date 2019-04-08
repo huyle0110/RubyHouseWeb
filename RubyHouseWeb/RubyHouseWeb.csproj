@@ -174,6 +174,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Category\AddCategoryVM.cs" />
     <Compile Include="Models\Product\ProductViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\RubyHouseAttributes.cs" />
@@ -256,6 +257,7 @@
     <Content Include="Content\plugin\bootstrap-datepicker\xxxbootstrap-datepicker3.min.css.map" />
     <Content Include="Content\plugin\bootstrap-datepicker\xxxbootstrap-datepicker3.standalone.css.map" />
     <Content Include="Content\plugin\bootstrap-datepicker\xxxbootstrap-datepicker3.standalone.min.css.map" />
+    <Content Include="Areas\Admin\Views\Category\Add.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\customformat.js" />
     <Content Include="Scripts\homer.js" />

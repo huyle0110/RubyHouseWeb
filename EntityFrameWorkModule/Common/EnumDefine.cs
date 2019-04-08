@@ -27,4 +27,9 @@ namespace EntityFrameWorkModule.Common
         Staff = 2,
         Cust = 3
     }
+
+    public enum levelCategory
+    {
+        Parent, Child
+    }
 }

@@ -1,8 +1,259 @@
-﻿
-@{
-    ViewBag.Title = "Quản lý nhóm sản phẩm";
+﻿@{
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <h2 class="font-light m-b-xs">
+                Quản lý nhóm danh mục
+            </h2>
+        </div>
+    </div>
+</div>
 
-<h2>Index</h2>
+<div class="content animate-panel">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="font-bold m-b-sm">
+                Điều kiện tìm kiếm
+            </div>
+            <div class="hpanel">
+                <div class="panel-body">
+                    <form class="form-horizontal" id="formSearchProduct">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Tên nhóm danh mục</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="categoryName" id="categoryName" value="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">Trạng thái</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="status" name="status">
+                                            <option value="">-- Tất cả --</option>
+                                            <option value="1">Hoạt động</option>
+                                            <option value="0">Không hoạt động</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label class="control-label"><input type="checkbox" id="cbShowMenu" name="cbShowMenu"/>&nbsp; Đang hiển thị menu</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <button type="button" class="btn btn-primary" id="btnInsert" onclick="categoryObject.showPopupAdd()"><i class="fa fa-plus"></i> &nbsp; Tạo mới</button>
+                                <button type="button" class="btn btn-primary" id="btnEdit" onclick="categoryObject.showPopupEdit()"><i class="fa fa-edit"></i> &nbsp; Chỉnh sửa</button>
+                                <button type="button" class="btn btn-success" id="btnView" onclick="categoryObject.showPopupView()"><i class="fa fa-eye"></i> &nbsp; Xem</button>
+                                <button type="button" class="btn btn-danger" id="btnDelete" onclick="categoryObject.buttonDelete()"><i class="fa fa-remove"></i> &nbsp; Xóa</button>
+                            </div>
+                            <div class="col-sm-6 pull-right">
+                                <div class="form-group">
+                                    <div class="col-sm-9 col-sm-offset-3">
+                                        <div class="pull-right">
+                                            <button type="button" onclick="categoryObject.search();" class="btn btn-primary">Tìm</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table id="tbCategory" class="table footable table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Tùy chọn</th>
+                                    <th class="text-center">Tên danh mục</th>
+                                    <th class="text-center">Hiển thị trên menu</th>
+                                    <th class="text-center">Level danh mục</th>
+                                    <th class="text-center">Ngày tạo</th>
+                                    <th class="text-center">Ngày cập nhật</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
+<!-- Modal -->
+<div class="modal fade modal-sub" id="addModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Thêm mới danh mục</h4>
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="categoryObject.submitAdd()">Lưu</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            var tableProduct;
+            $('body').on('changeDate', '#fromDate', categoryObject.changeFromDate);
+        });
+        var optionValidate = {
+            rules: {
+                ProductName: {
+                    required: true
+                },
+                Code: {
+                    required: true
+                },
+            },
+            messages: {
+                ProductName: {
+                    required: "Vui lòng nhập"
+                },
+                Code: {
+                    required: "Vui lòng nhập"
+                },
+            }
+        }
+        var categoryObject = {
+            initTable: function () {
+                tableProduct = $('#tbProduct').DataTable({
+                    "lengthMenu": [[5, 10, 25, 50], [5, 10, 25, 50]],
+                    "pageLength": 10,
+                    "bLengthChange": true,
+                    "searching": false,
+                    "proccessing": true,
+                    "scrollX": true,
+                    "ordering": false,
+                    "serverSide": true,
+                    'fnDrawCallback': function () {
+                        categoryObject.fnCallBack();
+                    },
+                    "ajax": {
+                        url: "/MM/DealerLimitMM/_GetDataListInau",
+                        type: 'POST',
+                        "data": function (d) {
+                            var param = {
+                                dealerId: $('#dealerId').val().trim(),
+                                limitType: $('#limitType').val(),
+                                effectiveDateFrom: $('#fromDate').val(),
+                                effectiveDateTo: $('#toDate').val(),
+                            };
+                            $.extend(d, param);
+                        }
+                    },
+                    "language": {
+                        "search": "",
+                        "searchPlaceholder": "Tìm theo mã...",
+                        "lengthMenu": "Hiển thị _MENU_",
+                        "zeroRecords": "Không tìm thấy dữ liệu",
+                        "info": "Đang hiển thị _START_ đến _END_ của _TOTAL_ dữ liệu",
+                        "infoEmpty": "Không tìm thấy dữ liệu",
+                        "infoFiltered": "(lọc từ _MAX_ tất cả)",
+                        "paginate": {
+                            "first": "Đầu",
+                            "last": "Cuối",
+                            "next": icon_next,
+                            "previous": icon_review
+                        },
+                    },
+                    "dom": '<"top">rt<"bottom"<"col-sm-4"i><"col-sm-8"pl>>',
+                    "columns": [
+                        {
+                            "mRender": function (data, type, row) {
+                                return '<input type="checkbox" name="cbSelect" id="cbSelect"/>';
+                            }, "className": "text-center"
+                        },
+                        { "data": "dealerId", "class": "text-center" },
+                        { "data": "limitTypeName", "class": "text-center" },
+                        { "data": "dealerLimitList.1.transLimitAmount", "class": "numberinput4" },
+                        { "data": "dealerLimitList.1.dailyLimitAmount", "class": "numberinput4" },
+                        { "data": "dealerLimitList.1.maxTermByMonth", "class": "numberinput2" },
+                        { "data": "dealerLimitList.0.transLimitAmount", "class": "numberinput4" },
+                        { "data": "dealerLimitList.0.dailyLimitAmount", "class": "numberinput4" },
+                        { "data": "dealerLimitList.0.maxTermByMonth", "class": "numberinput2" },
+                        { "data": "strEffectiveDate", "class": "text-center" },
+                        { "data": "limitStatusNameV2", "class": "text-left" },
+                        { "data": "lastUserUpdated", "class": "text-left" },
+                        { "data": "strLastDatetimeUpdated", "class": "text-center" },
+                    ],
+                });
+            },
+            fnCallBack: function () {
+
+            },
+            search: function () {
+                tableProduct.ajax.reload();
+            },
+            showPopupAdd: function () {
+                $.ajax({
+                    type: 'GET',
+                    url: '/admin/product/add',
+                    success: function (result) {
+                        var content = $('#addModal').find('.modal-body');
+                        content.html(result);
+                        commonAddEdit.validateAdd();
+                        $('#addModal').modal('show');
+                    }
+                });
+            },
+            showPopupView: function () {
+
+            },
+            showPopupEdit: function () {
+
+            },
+            buttonDelete: function () {
+
+            },
+            changeFromDate: function (selected) {
+                debugger;
+            },
+            submitAdd: function () {
+                if ($('#formAdd').valid()) {
+                    $('#formAdd').submit();
+                }
+            }
+        }
+
+        var commonAddEdit = {
+            validateAdd: function () {
+                $('#formAdd').validate(optionValidate);
+            },
+            validateEdit: function () {
+                $('#formEdit').validate(optionValidate);
+            }
+        }
+
+        function OnsuccessAdd(result)
+        {
+            if (result.Code == 0) {
+                categoryObject.search();
+                toastr.success(result.Message);
+            } else {
+                toastr.error(result.Message);
+            }
+        }
+    </script>
+}
