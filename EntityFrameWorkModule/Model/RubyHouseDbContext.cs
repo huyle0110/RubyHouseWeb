@@ -21,6 +21,7 @@ namespace EntityFrameWorkModule.EF
         public DbSet<Feedback> Feedbacks { get; set; }
         public DbSet<Permission> Permissions { get; set; }
         public DbSet<GroupPermission> GroupPermissions { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

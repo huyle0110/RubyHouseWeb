@@ -97,7 +97,7 @@
 
 <!-- Modal -->
 <div class="modal fade modal-sub" id="addModal" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog" style="width:40%">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -114,31 +114,25 @@
 </div>
 @section Scripts{
     <script>
+        var tableProduct;
         $(document).ready(function () {
-            var tableProduct;
             $('body').on('changeDate', '#fromDate', categoryObject.changeFromDate);
         });
         var optionValidate = {
             rules: {
-                ProductName: {
-                    required: true
-                },
-                Code: {
+                CategoryName: {
                     required: true
                 },
             },
             messages: {
-                ProductName: {
-                    required: "Vui lòng nhập"
-                },
-                Code: {
+                CategoryName: {
                     required: "Vui lòng nhập"
                 },
             }
         }
         var categoryObject = {
             initTable: function () {
-                tableProduct = $('#tbProduct').DataTable({
+                tableProduct = $('#tbCategory').DataTable({
                     "lengthMenu": [[5, 10, 25, 50], [5, 10, 25, 50]],
                     "pageLength": 10,
                     "bLengthChange": true,
@@ -187,12 +181,6 @@
                         },
                         { "data": "dealerId", "class": "text-center" },
                         { "data": "limitTypeName", "class": "text-center" },
-                        { "data": "dealerLimitList.1.transLimitAmount", "class": "numberinput4" },
-                        { "data": "dealerLimitList.1.dailyLimitAmount", "class": "numberinput4" },
-                        { "data": "dealerLimitList.1.maxTermByMonth", "class": "numberinput2" },
-                        { "data": "dealerLimitList.0.transLimitAmount", "class": "numberinput4" },
-                        { "data": "dealerLimitList.0.dailyLimitAmount", "class": "numberinput4" },
-                        { "data": "dealerLimitList.0.maxTermByMonth", "class": "numberinput2" },
                         { "data": "strEffectiveDate", "class": "text-center" },
                         { "data": "limitStatusNameV2", "class": "text-left" },
                         { "data": "lastUserUpdated", "class": "text-left" },
@@ -209,7 +197,7 @@
             showPopupAdd: function () {
                 $.ajax({
                     type: 'GET',
-                    url: '/admin/product/add',
+                    url: '/admin/category/add',
                     success: function (result) {
                         var content = $('#addModal').find('.modal-body');
                         content.html(result);

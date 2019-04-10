@@ -1,25 +1,44 @@
-﻿@model RubyHouseWeb.Models.Category.AddCategoryVM
+﻿@model RubyHouseWeb.Models.AddCategoryVM
 @using (Ajax.BeginForm("Add", "Category", new AjaxOptions { HttpMethod = "POST", OnSuccess = "OnSuccessAdd" }, new { @class = "form-horizontal", @id = "formAdd" }))
 {
     @Html.AntiForgeryToken();
     <div class="form-group">
-        <label class="col-sm-3 control-label">Tên sản phẩm</label>
-        <div class="col-sm-9">
+        <label class="col-sm-4 control-label">Tên danh mục</label>
+        <div class="col-sm-8">
             @Html.TextBoxFor(m => m.CategoryName, new { @class = "form-control" })
         </div>
     </div>
     <div class="form-group">
-        <label class="col-sm-3 control-label">
-            <input type="checkbox" id="showMenu"/> &nbsp; Hiển thị menu
-        </label>
-        <div class="col-sm-9">
+        <label class="col-sm-4 control-label">  Hiển thị menu</label>
+        <div class="col-sm-8">
+            <input type="checkbox" id="showMenu" checked/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 control-label">Chọn số thứ tự menu</label>
+        <div class="col-sm-8">
             @Html.TextBoxFor(m => m.DisplayOrder, new { @class = "form-control" })
         </div>
     </div>
     <div class="form-group">
-        <label class="col-sm-3 control-label">Giá</label>
-        <div class="col-sm-9">
-            @Html.TextBoxFor(m => m.Code, new { @class = "form-control" })
+        <label class="col-sm-4 control-label"> Danh mục cha</label>
+        <div class="col-sm-8">
+            <input type="checkbox" id="cbParentCategory" checked/> &nbsp;
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 control-label">Chọn danh mục cha</label>
+        <div class="col-sm-8">
+            <select class="form-control" id="parentCategory" name="parentCategory" readonly>
+                <option value="">Chọn</option>
+                @if (Model.categories != null && Model.categories.Any())
+                {
+                    foreach(var item in Model.categories)
+                    {
+                        <option value="@item.ID">@item.CategoryName</option>
+                    }
+                }
+            </select>
         </div>
     </div>
 }

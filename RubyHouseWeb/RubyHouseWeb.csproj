@@ -168,6 +168,7 @@
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SettingController.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Areas\Admin\Models\UserSession.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -258,6 +259,7 @@
     <Content Include="Content\plugin\bootstrap-datepicker\xxxbootstrap-datepicker3.standalone.css.map" />
     <Content Include="Content\plugin\bootstrap-datepicker\xxxbootstrap-datepicker3.standalone.min.css.map" />
     <Content Include="Areas\Admin\Views\Category\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\Setting\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\customformat.js" />
     <Content Include="Scripts\homer.js" />
@@ -754,6 +756,7 @@
     <Content Include="Vendor\sweetalert\lib\sweet-alert.scss" />
     <Content Include="Vendor\sweetalert\LICENSE" />
     <Content Include="Vendor\sweetalert\README.md" />
+    <Content Include="Views\Shared\_Navigation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -12,6 +12,7 @@ namespace EntityFrameWorkModule.Model
         public long ID { get; set; }
         public string CategoryName { get; set; }
         public levelCategory? levelCategory { get; set; }
+        public long? parentCategory { get; set; }
 
         public string MetaTitle { get; set; }
         public int? DisplayOrder { get; set; } // Khong hiển thị thì là null, hiển thị theo vị trí từ 1

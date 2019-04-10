@@ -1,4 +1,5 @@
-﻿using EntityFrameWorkModule.Model;
+﻿using EntityFrameWorkModule.EF;
+using EntityFrameWorkModule.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace EntityFrameWorkModule.IServices
 {
-    public interface ICategoryServices
+    public interface ICategoryServices : IGenericRepository<Category>
     {
-        List<Category> categories();
+        
     }
 }

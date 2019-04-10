@@ -9,6 +9,7 @@ namespace EntityFrameWorkModule.Migrations
     {
         public Configuration()
         {
+            AutomaticMigrationDataLossAllowed = true;
             AutomaticMigrationsEnabled = true;
         }
 
