@@ -228,3 +228,38 @@ function autonumericformat(c, o) {
     }
 }
 
+function setrangedate(f, t, datef, datet) {
+    setTimeout(function () {
+        if (datef && datef) {
+            f.datepicker('setEndDate', datet);
+            t.datepicker('setStartDate', datef);
+        }
+        else {
+            f.datepicker('setEndDate', t.datepicker('getDate'));
+            t.datepicker('setStartDate', f.datepicker('getDate'));
+
+        }
+        if (datef && datef) {
+            f.datepicker().on('changeDate', function (e) {
+                f.datepicker('setEndDate', datet);
+            });
+
+            t.datepicker().on('changeDate', function (e) {
+                t.datepicker('setStartDate', datef);
+            });
+        }
+        else {
+            f.datepicker().on('changeDate', function (e) {
+                t.datepicker('setStartDate', f.datepicker('getDate'));
+
+            });
+
+            t.datepicker().on('changeDate', function (e) {
+                f.datepicker('setEndDate', t.datepicker('getDate'));
+
+            });
+        }
+    }, 200);
+
+}
+

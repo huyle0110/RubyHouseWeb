@@ -1,6 +1,7 @@
 ﻿using CommonLibrary.Response;
 using EntityFrameWorkModule.IServices;
 using EntityFrameWorkModule.Model;
+using EntityFrameWorkModule.RequestModel;
 using RubyHouseWeb.Models;
 using System;
 using System.Collections.Generic;
@@ -24,10 +25,22 @@ namespace RubyHouseWeb.Areas.Admin.Controllers
             return View();
         }
 
+        [HttpPost]
+        public JsonResult getDataList(SearchCategoryRequestModel model)
+        {
+            var result = _categoryServices.search(model);
+            return Json(new
+            {
+                recordsTotal = result.Count(),
+                recordsFiltered = result.Count(),
+                data = result
+            });
+        }
+
         [HttpGet]
         public PartialViewResult Add()
         {
-            var categories = _categoryServices.SelectAll().ToList();
+            //var categories = _categoryServices.SelectAll().ToList();
             AddCategoryVM vm = new AddCategoryVM()
             {
             };

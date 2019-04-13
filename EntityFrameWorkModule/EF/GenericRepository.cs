@@ -26,6 +26,11 @@ namespace EntityFrameWorkModule.EF
         {
             return _table.ToList();
         }
+
+        //public async Task IEnumerable<T> getAllAsync()
+        //{
+        //    return _table.ToListAsync();
+        //}
         public int Delete(object id)
         {
             T existing = _table.Find(id);

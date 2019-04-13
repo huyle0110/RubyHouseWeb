@@ -1,6 +1,7 @@
 ﻿using EntityFrameWorkModule.EF;
 using EntityFrameWorkModule.IServices;
 using EntityFrameWorkModule.Model;
+using EntityFrameWorkModule.RequestModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,9 @@ namespace RubyHouseServices.Services
 {
     public class CategoryServices : GenericRepository<Category>, ICategoryServices
     {
-        
+        public List<Category> search(SearchCategoryRequestModel model)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

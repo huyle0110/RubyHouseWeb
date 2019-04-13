@@ -96,6 +96,21 @@
 </div>
 
 <!-- Modal -->
+<div class="modal fade modal-sub" id="detailModal" role="dialog">
+    <div class="modal-dialog" style="width:40%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Chi tiết danh mục</h4>
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="modal fade modal-sub" id="addModal" role="dialog">
     <div class="modal-dialog" style="width:40%">
         <div class="modal-content">
@@ -109,9 +124,25 @@
                 <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
             </div>
         </div>
-
     </div>
 </div>
+
+<div class="modal fade modal-sub" id="editModal" role="dialog">
+    <div class="modal-dialog" style="width:40%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Cập nhật danh mục</h4>
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="categoryObject.submitUpdate()">Lưu</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 @section Scripts{
     <script>
         var tableProduct;
@@ -202,15 +233,37 @@
                         var content = $('#addModal').find('.modal-body');
                         content.html(result);
                         commonAddEdit.validateAdd();
+                        commonAddEdit.init();
                         $('#addModal').modal('show');
                     }
                 });
             },
             showPopupView: function () {
-
+                $.ajax({
+                    type: 'GET',
+                    url: '/admin/category/detail',
+                    success: function (result) {
+                        var content = $('#detailModal').find('.modal-body');
+                        content.html(result);
+                        $('#detailModal').modal('show');
+                    }
+                });
             },
             showPopupEdit: function () {
-
+                $.ajax({
+                    type: 'GET',
+                    url: '/admin/category/detail',
+                    success: function (result) {
+                        var content = $('#editModal').find('.modal-body');
+                        content.html(result);
+                        $('#editModal').modal('show');
+                    }
+                });
+            },
+            submitUpdate: function () {
+                if ($('#formEdit').valid()) {
+                    $('#formEdit').submit();
+                }
             },
             buttonDelete: function () {
 
@@ -226,12 +279,21 @@
         }
 
         var commonAddEdit = {
+            init: function () {
+                $('body').on('change', '#levelCategory', commonAddEdit.changeLevelCategory);
+            },
             validateAdd: function () {
                 $('#formAdd').validate(optionValidate);
             },
             validateEdit: function () {
                 $('#formEdit').validate(optionValidate);
-            }
+            },
+            changeLevelCategory: function () {
+                if ($(this).is(':checked')) {
+                    $('#parentCategory').attr('readonly', 'readonly');
+                } else
+                    $('#parentCategory').removeAttr('readonly'); 
+            },
         }
 
         function OnsuccessAdd(result)
