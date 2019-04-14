@@ -40,7 +40,7 @@ namespace RubyHouseWeb.Areas.Admin.Controllers
         [HttpGet]
         public PartialViewResult Add()
         {
-            //var categories = _categoryServices.SelectAll().ToList();
+            var categories = _categoryServices.SelectAll().ToList();
             AddCategoryVM vm = new AddCategoryVM()
             {
             };

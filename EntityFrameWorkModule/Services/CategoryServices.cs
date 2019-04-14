@@ -14,7 +14,7 @@ namespace RubyHouseServices.Services
     {
         public List<Category> search(SearchCategoryRequestModel model)
         {
-            throw new NotImplementedException();
+            return this.SelectAll().ToList();
         }
     }
 }

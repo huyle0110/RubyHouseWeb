@@ -1,17 +1,44 @@
-﻿@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
-    <div>
-    
+﻿<style>
+    .wd-header-top {
+        background: #ffffff;
+        border-bottom: 1px solid #e8e4e4;
+        z-index: 1;
+        padding-bottom: 5px;
+        padding-top: 5px;
+    }
+    .header-menu li a {
+        font-size:20px;
+        color: white !important;
+    }
+</style>
+<div class="wd-header-top">
+    <div class="container">
+        <div class="col-sm-6">
+            <p><i class="fa fa-phone color-pink" aria-hidden="true"></i>  Hotline</p>
+        </div>
+        <div class="col-sm-6" style="text-align:right">
+            <div class="col-sm-8 text-right" style="float:right">
+                <a class="col-sm-4"><i class="fa fa-user color-pink" aria-hidden="true"></i> Tài khoản</a>
+                <a class="col-sm-4"><i class="fa fa-shopping-cart color-pink" aria-hidden="true"></i> Giỏ hàng</a>
+                <a class="col-sm-4"><i class="fa fa-search color-pink" aria-hidden="true"></i> Tìm kiếm</a>
+            </div>
+        </div>
     </div>
-</body>
-</html>
+    
+</div>
+<div class="row">
+    <nav class="navbar navbar-default" style="background:rgb(236, 0, 140)">
+        <div class="container">
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav header-menu">
+                    <li><a> <i class="fa fa-home"></i> &nbsp;Trang chủ</a></li>
+                    <li><a>Trang chủ</a></li>
+                    <li><a>Trang chủ</a></li>
+                    <li><a>Trang chủ</a></li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+

@@ -28,7 +28,7 @@ namespace RubyHouseWeb
                       "~/Vendor/bootstrap/dist/js/bootstrap.min.js",
                       "~/Vendor/bootstrapdatepicker/bootstrap-datepicker.min.js",
                       "~/Vendor/jquery-validation/jquery.validate.min.js",
-                      "~/Vendor/datatables/media/js/jquery.dataTables.min.js",
+                      "~/Content/plugin/datatables/js/jquery.dataTables.min.js",
                       "~/Scripts/locales/bootstrap-datepicker.vi.min.js",
                       "~/Vendor/toastr/build/toastr.min.js"
                       ));
@@ -46,7 +46,7 @@ namespace RubyHouseWeb
 
             // Font Awesome icons style
             bundles.Add(new StyleBundle("~/bundles/font-awesome/css").Include(
-                      "~/Vendor/fontawesome/css/font-awesome.min.css", new CssRewriteUrlTransform()));
+                      "~/Content/font-awesome.min.css", new CssRewriteUrlTransform()));
         }
     }
 }

@@ -41,7 +41,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-4" style="text-align:center">
                                 <div class="form-group">
                                     <label class="control-label"><input type="checkbox" id="cbShowMenu" name="cbShowMenu"/>&nbsp; Đang hiển thị menu</label>
                                 </div>
@@ -75,12 +75,12 @@
             <div class="hpanel">
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table id="tbCategory" class="table footable table-bordered table-hover">
+                        <table id="tbCategory" class="table table-bordered table-hover" style="width: 100% !important">
                             <thead>
                                 <tr>
                                     <th class="text-center">Tùy chọn</th>
                                     <th class="text-center">Tên danh mục</th>
-                                    <th class="text-center">Hiển thị trên menu</th>
+                                    <th class="text-center">Số thứ tự hiển thị trên menu</th>
                                     <th class="text-center">Level danh mục</th>
                                     <th class="text-center">Ngày tạo</th>
                                     <th class="text-center">Ngày cập nhật</th>
@@ -148,6 +148,8 @@
         var tableProduct;
         $(document).ready(function () {
             $('body').on('changeDate', '#fromDate', categoryObject.changeFromDate);
+
+            categoryObject.initTable();
         });
         var optionValidate = {
             rules: {
@@ -176,14 +178,13 @@
                         categoryObject.fnCallBack();
                     },
                     "ajax": {
-                        url: "/MM/DealerLimitMM/_GetDataListInau",
+                        url: "/Admin/Category/getDataList",
                         type: 'POST',
                         "data": function (d) {
                             var param = {
-                                dealerId: $('#dealerId').val().trim(),
-                                limitType: $('#limitType').val(),
-                                effectiveDateFrom: $('#fromDate').val(),
-                                effectiveDateTo: $('#toDate').val(),
+                                categoryName: $('#categoryName').val().trim(),
+                                status: $('#status').val(),
+                                showMenu: $('#cbShowMenu').is(':checked'),
                             };
                             $.extend(d, param);
                         }
@@ -197,10 +198,10 @@
                         "infoEmpty": "Không tìm thấy dữ liệu",
                         "infoFiltered": "(lọc từ _MAX_ tất cả)",
                         "paginate": {
-                            "first": "Đầu",
-                            "last": "Cuối",
-                            "next": icon_next,
-                            "previous": icon_review
+                            "first": "đầu",
+                            "last": "cuối",
+                            //"next": "trang tiếp",
+                            //"previous": "trang trước"
                         },
                     },
                     "dom": '<"top">rt<"bottom"<"col-sm-4"i><"col-sm-8"pl>>',
@@ -210,17 +211,16 @@
                                 return '<input type="checkbox" name="cbSelect" id="cbSelect"/>';
                             }, "className": "text-center"
                         },
-                        { "data": "dealerId", "class": "text-center" },
-                        { "data": "limitTypeName", "class": "text-center" },
-                        { "data": "strEffectiveDate", "class": "text-center" },
-                        { "data": "limitStatusNameV2", "class": "text-left" },
-                        { "data": "lastUserUpdated", "class": "text-left" },
-                        { "data": "strLastDatetimeUpdated", "class": "text-center" },
+                        { "data": "CategoryName", "class": "text-center" },
+                        { "data": "DisplayOrder", "class": "text-center" },
+                        { "data": "CategoryName", "class": "text-center" },
+                        { "data": "CategoryName", "class": "text-center" },
+                        { "data": "CategoryName", "class": "text-center" },
                     ],
                 });
             },
             fnCallBack: function () {
-
+                tableProduct.columns.adjust();
             },
             search: function () {
                 tableProduct.ajax.reload();
@@ -296,8 +296,7 @@
             },
         }
 
-        function OnsuccessAdd(result)
-        {
+        function OnsuccessAdd(result)  {
             if (result.Code == 0) {
                 categoryObject.search();
                 toastr.success(result.Message);
