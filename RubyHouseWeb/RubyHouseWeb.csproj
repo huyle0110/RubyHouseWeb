@@ -681,6 +681,7 @@
     <Content Include="Vendor\sweetalert\LICENSE" />
     <Content Include="Vendor\sweetalert\README.md" />
     <Content Include="Views\Shared\_Navigation.cshtml" />
+    <Content Include="Views\Home\getHotProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

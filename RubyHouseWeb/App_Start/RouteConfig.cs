@@ -15,7 +15,7 @@ namespace RubyHouseWeb
             routes.MapRoute(
                 "login",     
                 "login",
-                new { Areas = "admin",controller = "Home", action = "Login" }  // Parameter defaults
+                new { Areas = "Admin",controller = "Home", action = "Login" }  // Parameter defaults
             );
 
             routes.MapRoute(

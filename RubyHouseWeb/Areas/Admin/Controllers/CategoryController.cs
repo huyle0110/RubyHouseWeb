@@ -31,8 +31,8 @@ namespace RubyHouseWeb.Areas.Admin.Controllers
             var result = _categoryServices.search(model);
             return Json(new
             {
-                recordsTotal = result.Count(),
-                recordsFiltered = result.Count(),
+                recordsTotal = result.totalRecord,
+                recordsFiltered = result.resultList,
                 data = result
             });
         }

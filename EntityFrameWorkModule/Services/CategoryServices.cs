@@ -2,6 +2,7 @@
 using EntityFrameWorkModule.IServices;
 using EntityFrameWorkModule.Model;
 using EntityFrameWorkModule.RequestModel;
+using EntityFrameWorkModule.ResultModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,11 @@ namespace RubyHouseServices.Services
 {
     public class CategoryServices : GenericRepository<Category>, ICategoryServices
     {
-        public List<Category> search(SearchCategoryRequestModel model)
+        public SearchCategoryResultModel search(SearchCategoryRequestModel model)
         {
-            return this.SelectAll().ToList();
+            var result = new SearchCategoryResultModel();
+            result.resultList = this.SelectAll().ToList();
+            return result;
         }
     }
 }

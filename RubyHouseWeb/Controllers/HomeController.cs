@@ -20,6 +20,11 @@ namespace RubyHouseWeb.Controllers
             return View();
         }
 
+        public PartialViewResult getHotProduct()
+        {
+            return PartialView();
+        }
+
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

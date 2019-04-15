@@ -1,6 +1,7 @@
 ﻿using EntityFrameWorkModule.EF;
 using EntityFrameWorkModule.Model;
 using EntityFrameWorkModule.RequestModel;
+using EntityFrameWorkModule.ResultModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,6 @@ namespace EntityFrameWorkModule.IServices
 {
     public interface ICategoryServices : IGenericRepository<Category>
     {
-        List<Category> search(SearchCategoryRequestModel model);
+        SearchCategoryResultModel search(SearchCategoryRequestModel model);
     }
 }
