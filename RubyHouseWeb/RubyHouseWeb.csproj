@@ -275,6 +275,7 @@
     <Content Include="Scripts\locales\bootstrap-datepicker.vi.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\numeral.js" />
+    <Content Include="Scripts\Store.js" />
     <Content Include="Vendor\bootstrapdatepicker\bootstrap-datepicker.min.css" />
     <Content Include="Vendor\bootstrapdatepicker\bootstrap-datepicker.min.js" />
     <Content Include="Vendor\bootstrap\.bower.json" />
