@@ -15,8 +15,16 @@ namespace EntityFrameWorkModule.Services
     {
         public SearchProductResultModel search(SearchProductRequestModel model)
         {
-            var student = this.SelectAll().ToList();
-            throw new NotImplementedException();
+            try
+            {
+                var result = new SearchProductResultModel();
+                var student = this.SelectAll().ToList();
+                result.resultList = student;
+                return result;
+            } catch(Exception ex)
+            {
+                return new SearchProductResultModel();
+            }
         }
     }
 }
